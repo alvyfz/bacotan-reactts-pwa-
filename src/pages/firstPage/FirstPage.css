@@ -1,0 +1,14 @@
+.textFP {
+  font-size: 24px;
+  text-align: center;
+  padding: 10% 10% 5% 10%;
+}
+.conFP {
+  height: 100vh;
+  overflow: auto;
+}
+.buttonFP {
+  width: 100%;
+  padding: auto;
+  height: 48px;
+}

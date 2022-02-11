@@ -1,8 +1,6 @@
-# bacotan-reactts-pwa-
+# bacotan-reacttypescript-pwa-with-graphql
 
 bacotan is chat grup app with your friends. alvyfz/bacotan-reactts-pwa this app is developed by react pwa typescript and graphQL
-
-# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
