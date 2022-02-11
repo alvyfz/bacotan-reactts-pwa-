@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { useMutation } from "@apollo/client";
 import { QUERY_SIGNUP } from "../../helper/QueryGQL";
 import LoadingButton from "@mui/lab/LoadingButton";
-// import SaveIcon from "@mui/icons-material/Save";
 
 interface FormLogin {
   value: string;
