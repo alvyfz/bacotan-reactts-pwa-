@@ -7,6 +7,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import SignupComponent from "../../components/signupComponent/SignupComponent";
 
 const Login: FC = () => {
   const [valueTabs, setValueTabs] = useState("1");
@@ -19,14 +20,14 @@ const Login: FC = () => {
 
   return (
     <>
-      <Container>
+      <Container className="conFP">
         <div className="brandFP">
           {" "}
           <Logo />
           <div className="pFP">bacotin semua dengan temanmu</div>
         </div>
         <TabContext value={valueTabs}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Box>
             <TabList
               onChange={handleChangeValueTabs}
               aria-label="lab API tabs example"
@@ -39,7 +40,9 @@ const Login: FC = () => {
             </TabList>
           </Box>
           <TabPanel value="1">Item One</TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
+          <TabPanel value="2">
+            <SignupComponent />
+          </TabPanel>
         </TabContext>
       </Container>
     </>
