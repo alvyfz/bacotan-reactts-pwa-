@@ -25,17 +25,17 @@ const App: FC = () => {
     <>
       <ThemeProvider theme={theme}>
         <Grid container className="mainContainer">
-          <Grid item xs={0} md={4}>
+          <Grid item xs={0} md={3} lg={4}>
             {" "}
           </Grid>
-          <Grid item xs={12} md={4} className="mainGrid">
+          <Grid item xs={12} md={6} lg={4} className="mainGrid">
             {" "}
             <Routes>
               <Route path="/" element={<FirstPage />} />
               <Route path="/login" element={<Login />} />
             </Routes>
           </Grid>
-          <Grid item xs={0} md={4}>
+          <Grid item xs={0} md={3} lg={4}>
             {" "}
           </Grid>
         </Grid>
