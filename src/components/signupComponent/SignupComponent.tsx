@@ -2,7 +2,7 @@ import { Grid, Button, TextField } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
 import "./SignupComp.css";
 import Swal from "sweetalert2";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { QUERY_SIGNUP } from "../../helper/QueryGQL";
 import LoadingButton from "@mui/lab/LoadingButton";
 // import SaveIcon from "@mui/icons-material/Save";
