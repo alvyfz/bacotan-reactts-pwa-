@@ -8,6 +8,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import SignupComponent from "../../components/signupComponent/SignupComponent";
+import LoginComponent from "../../components/loginComponent/LoginComponent";
 
 const Login: FC = () => {
   const [valueTabs, setValueTabs] = useState("1");
@@ -39,7 +40,9 @@ const Login: FC = () => {
               <Tab label="Daftar" value="2" />
             </TabList>
           </Box>
-          <TabPanel value="1">Item One</TabPanel>
+          <TabPanel value="1">
+            <LoginComponent />
+          </TabPanel>
           <TabPanel value="2">
             <SignupComponent />
           </TabPanel>

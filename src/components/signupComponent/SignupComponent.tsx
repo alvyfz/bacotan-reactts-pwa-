@@ -16,7 +16,7 @@ const SignupComponent: FC = () => {
   const [SignupInsert, { data, loading: loadingM, error: errorM }] =
     useMutation(QUERY_SIGNUP, {
       onError(error) {
-        console.log(error);
+        Swal.fire("The Internet?", "That thing is still around?", "question");
       },
     });
 
@@ -103,6 +103,12 @@ const SignupComponent: FC = () => {
     if (data !== undefined) {
       setUsername({
         ...username,
+        value: "",
+        isError: false,
+        errorMessage: null,
+      });
+      setPassword({
+        ...password,
         value: "",
         isError: false,
         errorMessage: null,
