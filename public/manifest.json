@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "bacotan",
-  "short_name": "bacotan",
-  "description": "bacotan is chat group app with your friends",
+  "name": "Bacotan Messenger",
+  "short_name": "Bacotan",
+  "description": "Bacotan Messenger is chat group app with your friends",
   "icons": [
     {
       "src": "favicon.ico",
@@ -14,24 +14,69 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/android-icon-192x192-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "/icon-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
+      "src": "/apple-icon-180x180-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "180x180"
     },
     {
-      "src": "/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
+      "src": "/apple-icon-152x152-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "152x152"
     },
     {
-      "src": "/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/apple-icon-144x144-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/apple-icon-120x120-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "/apple-icon-114x114-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "/favicon-96x96-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/apple-icon-76x76-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "76x76"
+    },
+    {
+      "src": "/apple-icon-72x72-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/apple-icon-60x60-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "/apple-icon-57x57-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "/favicon-32x32-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/favicon-16x16-seochecker-manifest-213.png",
+      "type": "image/png",
+      "sizes": "16x16"
     }
   ]
 }
