@@ -6,6 +6,7 @@ import "./App.css";
 import { createTheme, Theme, ThemeProvider } from "@mui/material/styles";
 import { indigo } from "@mui/material/colors";
 import FirstPage from "./firstPage/FirstPage";
+import Home from "./home/Home";
 const App: FC = () => {
   const theme: Theme = createTheme({
     palette: {
@@ -31,8 +32,9 @@ const App: FC = () => {
           <Grid item xs={12} md={6} lg={4} className="mainGrid">
             {" "}
             <Routes>
-              <Route path="/" element={<FirstPage />} />
+              <Route path="/hallo" element={<FirstPage />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Home />} />
             </Routes>
           </Grid>
           <Grid item xs={0} md={3} lg={4}>

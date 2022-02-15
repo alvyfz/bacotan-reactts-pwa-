@@ -25,7 +25,7 @@ const LoginComponent: FC = () => {
         "Sekarang kamu bisa bacotan bersama temanmu!",
         "success"
       );
-      navigate("/home");
+      navigate("/");
     }
     if (dataLogin?.users.length === 0) {
       Swal.fire({

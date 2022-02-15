@@ -9,6 +9,7 @@
 }
 .buttonFP {
   width: 100%;
-  /* padding: auto; */
+  text-transform: none;
+  /* text-transform: unset !important; */
   height: 48px;
 }
