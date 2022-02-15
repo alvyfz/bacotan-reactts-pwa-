@@ -16,3 +16,15 @@ a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
+
+body::-webkit-scrollbar-thumb {
+  background-color: gainsboro;
+  border-radius: 20px;
+}
+body::-webkit-scrollbar {
+  width: 6px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}

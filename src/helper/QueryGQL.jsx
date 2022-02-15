@@ -21,3 +21,20 @@ export const QUERY_LOGIN = gql`
     }
   }
 `;
+
+export const QUERY_JOIN_ROOM = gql`
+  mutation MyMutation($room_id: uuid = String, $user_id: uuid = String) {
+    insert_room_users_one(object: { room_id: $room_id, user_id: $user_id }) {
+      room_id
+      user_id
+    }
+  }
+`;
+
+export const QUERY_CREATE_ROOM = gql`
+  mutation MyMutation($name: String!) {
+    insert_room_one(object: { name: $name }) {
+      id
+    }
+  }
+`;
