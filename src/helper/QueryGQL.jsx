@@ -60,6 +60,7 @@ export const QUERY_SUBCRIPTION_CHAT = gql`
       room_id
       user_id
       updated_at
+      created_at
       id
       message
       user {
