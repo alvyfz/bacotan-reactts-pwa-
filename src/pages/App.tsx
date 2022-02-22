@@ -7,6 +7,7 @@ import { createTheme, Theme, ThemeProvider } from "@mui/material/styles";
 import { indigo } from "@mui/material/colors";
 import FirstPage from "./firstPage/FirstPage";
 import Home from "./home/Home";
+import Chat from "./chat/Chat";
 const App: FC = () => {
   const theme: Theme = createTheme({
     palette: {
@@ -35,6 +36,8 @@ const App: FC = () => {
               <Route path="/hallo" element={<FirstPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/chat" element={<Chat />} />
             </Routes>
           </Grid>
           <Grid item xs={0} md={3} lg={4}>

@@ -10,10 +10,22 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import "./Home.css";
 import RoomsComp from "../../components/roomsComponent/RoomsComp";
+import { useNavigate } from "react-router-dom";
+import { parseCookies } from "nookies";
+import YourRoomsComp from "../../components/yourRoomsComponent/YourRoomsComp";
 
 const Home: FC = () => {
+  const Navigate: any = useNavigate();
+  const auth: string = parseCookies().auth;
   const [value, setValue] = useState<number>(2);
   const ref = useRef<any | null>(null);
+
+  useEffect(() => {
+    if (!auth) {
+      Navigate("/hallo");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth]);
 
   useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
@@ -22,41 +34,7 @@ const Home: FC = () => {
   const renderSwitch: any = (value: number) => {
     switch (value) {
       case 2:
-        return (
-          <>
-            {" "}
-            <p> hallo 1</p>
-            <p> hallo 2</p>
-            <p> hallo 3</p>
-            <p> hallo 4</p>
-            <p> hallo 5</p>
-            <p> hallo 6</p>
-            <p> hallo 7</p>
-            <p> hallo 8</p>
-            <p> hallo 9</p>
-            <p> hallo 10</p>
-            <p> hallo 1</p>
-            <p> hallo 2</p>
-            <p> hallo 3</p>
-            <p> hallo 4</p>
-            <p> hallo 5</p>
-            <p> hallo 6</p>
-            <p> hallo 7</p>
-            <p> hallo 8</p>
-            <p> hallo 9</p>
-            <p> hallo 10</p>
-            <p> hallo 1</p>
-            <p> hallo 2</p>
-            <p> hallo 3</p>
-            <p> hallo 4</p>
-            <p> hallo 5</p>
-            <p> hallo 6</p>
-            <p> hallo 7</p>
-            <p> hallo 8</p>
-            <p> hallo 9</p>
-            <p> hallo 10</p>
-          </>
-        );
+        return <YourRoomsComp />;
       default:
         return <RoomsComp />;
     }

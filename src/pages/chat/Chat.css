@@ -1,0 +1,37 @@
+.container-chat {
+  height: 100vh;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.grid-head-chat {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.name-room {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-left: 10px;
+}
+
+.container-message {
+  height: 87vh;
+  overflow-x: hidden;
+}
+.container-message::-webkit-scrollbar-thumb {
+  background-color: gainsboro;
+  border-radius: 20px;
+}
+.container-message::-webkit-scrollbar {
+  width: 6px; /* width of the entire scrollbar */
+}
+
+.container-message::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+.button-send-chat {
+  padding-right: 50px;
+}

@@ -15,10 +15,8 @@ import Logo from "../svg/logo";
 import { QUERY_CREATE_ROOM, QUERY_JOIN_ROOM } from "../../helper/QueryGQL";
 import Swal from "sweetalert2";
 import { parseCookies } from "nookies";
-import { useNavigate } from "react-router-dom";
 
 const RoomsComp: FC = () => {
-  const Navigate: any = useNavigate();
   const auth: string = parseCookies().auth;
   const [joinRoom, { data: dataJoin, loading: loadingJoin, error: errorJoin }] =
     useMutation(QUERY_JOIN_ROOM, {
@@ -47,15 +45,12 @@ const RoomsComp: FC = () => {
   const [modalCreate, setModalCreate] = useState<boolean>(false);
   const [kode, setKode] = useState<string>("");
   const [roomName, setRoomName] = useState<string>("");
+  const [roomDesc, setRoomDesc] = useState<string>("");
   const handleOpenJoin: any = () => setModalJoin(true);
   const handleCloseJoin: any = () => setModalJoin(false);
   const handleOpenCreate: any = () => setModalCreate(true);
   const handleCloseCreate: any = () => setModalCreate(false);
-  useEffect(() => {
-    if (!auth) {
-      Navigate("/");
-    }
-  });
+
   useEffect(() => {
     if (errorJoin) {
       Swal.fire({
@@ -73,8 +68,7 @@ const RoomsComp: FC = () => {
         "Kamu bisa mulai bacotin di Your Room",
         "success"
       );
-      Navigate("/");
-
+      window.location.reload();
       setModalJoin(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -117,7 +111,8 @@ const RoomsComp: FC = () => {
         `${dataCreate?.insert_room_one.id}`,
         "success"
       );
-      Navigate("/");
+
+      window.location.reload();
 
       setModalCreate(false);
     }
@@ -128,6 +123,9 @@ const RoomsComp: FC = () => {
   };
   const HandleChangeRoomName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRoomName(e.target.value);
+  };
+  const HandleChangeRoomDesc = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRoomDesc(e.target.value);
   };
 
   const handleJoinRoom = (e: React.FormEvent<HTMLFormElement>) => {
@@ -146,6 +144,7 @@ const RoomsComp: FC = () => {
     createRoom({
       variables: {
         name: roomName,
+        description: roomDesc,
       },
     });
     setRoomName("");
@@ -256,7 +255,16 @@ const RoomsComp: FC = () => {
                             value={roomName}
                           />
                         </div>
-
+                        <div className="margintd">
+                          <TextField
+                            className="inputSignup"
+                            required
+                            id="outlined-required"
+                            label="Deskripsi room"
+                            onChange={HandleChangeRoomDesc}
+                            value={roomDesc}
+                          />
+                        </div>
                         {loadingCreate || loadingJoin2 ? (
                           <LoadingButton
                             loading
