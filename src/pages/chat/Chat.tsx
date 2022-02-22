@@ -15,7 +15,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
 import iconGroup from "../../components/svg/iconGroup.jpg";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_ROOM_BY_ID, QUERY_SEND_CHAT } from "../../helper/QueryGQL";
+import {
+  QUERY_ROOM_BY_ID,
+  QUERY_SEND_CHAT,
+  QUERY_UPDATE_ROOM,
+} from "../../helper/QueryGQL";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import SendIcon from "@mui/icons-material/Send";
@@ -49,6 +53,14 @@ const Chat: FC = () => {
       Swal.fire("The Internet?", "That thing is still around?", "question");
     },
   });
+  const [updateRoom, { data: dataUpdate, error: errorUpdate }] = useMutation(
+    QUERY_UPDATE_ROOM,
+    {
+      onError(error) {
+        Swal.fire("The Internet?", "That thing is still around?", "question");
+      },
+    }
+  );
   const dataRoom = data?.room_by_pk;
   useEffect(() => {
     setStateInDetail({
@@ -59,11 +71,25 @@ const Chat: FC = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataRoom]);
+  console.log(dataUpdate);
   useEffect(() => {
-    if (error || errorMessage) {
+    setStateInDetail({
+      ...stateInDetail,
+      name: dataUpdate?.update_room_by_pk.name,
+      description:
+        dataUpdate?.update_room_by_pk.description || "Tidak ada deskripsi",
+      id: dataUpdate?.update_room_by_pk.id,
+      onEdit: false,
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataUpdate]);
+
+  useEffect(() => {
+    if (error || errorMessage || errorUpdate) {
       Swal.fire("The Internet?", "That thing is still around?", "question");
     }
-  }, [error, errorMessage]);
+  }, [error, errorMessage, errorUpdate]);
 
   const HandleSendMessage: any = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,11 +103,25 @@ const Chat: FC = () => {
     setMessage("");
   };
 
+  const HandleUpdateRoom: any = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    updateRoom({
+      variables: {
+        id: idRoom,
+        name: stateInDetail.name,
+        description: stateInDetail.description,
+      },
+    });
+  };
+
   const HandleChangeMessage: any = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   };
   const handleOpenDetail: any = () => setModalDetail(true);
-  const handleCloseDetail: any = () => setModalDetail(false);
+  const handleCloseDetail: any = () => {
+    setModalDetail(false);
+    setStateInDetail({ ...stateInDetail, onEdit: false });
+  };
   const handleButtonEdit: any = () =>
     setStateInDetail({ ...stateInDetail, onEdit: true });
   const HandleChangeNameRoom: any = (
@@ -114,12 +154,12 @@ const Chat: FC = () => {
             />{" "}
           </Grid>
           <Grid xs={10}>
-            {dataRoom.name ? (
+            {dataRoom?.name ? (
               <div onClick={handleOpenDetail} className="name-room">
-                {dataRoom?.name || "Loading..."}
+                {dataRoom?.name}
               </div>
             ) : (
-              <div className="name-room">"Loading..."</div>
+              <div className="name-room">Loading...</div>
             )}
           </Grid>
         </Grid>{" "}
@@ -134,7 +174,7 @@ const Chat: FC = () => {
             <Box className="boxModal">
               <Grid container justifyContent="center">
                 <Grid xs={10} className="gridRooms">
-                  <form onSubmit={() => {}}>
+                  <form onSubmit={HandleUpdateRoom}>
                     <div className="margintd">
                       <TextField
                         className="inputSignup"
@@ -148,7 +188,7 @@ const Chat: FC = () => {
                     <div className="margintd">
                       <TextField
                         className="inputSignup"
-                        disabled={true}
+                        disabled={stateInDetail.onEdit ? false : true}
                         required
                         variant="standard"
                         label="Nama room"
@@ -161,7 +201,7 @@ const Chat: FC = () => {
                         className="inputSignup"
                         variant="standard"
                         required
-                        disabled={true}
+                        disabled={stateInDetail.onEdit ? false : true}
                         multiline={true}
                         label="Deskripsi room"
                         onChange={HandleChangeRoomDesc}
@@ -179,15 +219,15 @@ const Chat: FC = () => {
                           color="secondary"
                           type="submit"
                         >
-                          Edit
+                          Edit now
                         </Button>
                       </>
                     ) : (
                       <Button
                         className="buttonFP buttonSign"
                         variant="contained"
-                        color="primary"
                         onClick={handleButtonEdit}
+                        color="primary"
                       >
                         Edit
                       </Button>

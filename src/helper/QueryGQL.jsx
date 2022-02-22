@@ -92,3 +92,16 @@ export const QUERY_SEND_CHAT = gql`
     }
   }
 `;
+
+export const QUERY_UPDATE_ROOM = gql`
+  mutation MyMutation($id: uuid!, $description: String!, $name: String!) {
+    update_room_by_pk(
+      pk_columns: { id: $id }
+      _set: { description: $description, name: $name }
+    ) {
+      id
+      description
+      name
+    }
+  }
+`;
