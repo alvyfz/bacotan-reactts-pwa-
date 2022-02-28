@@ -132,6 +132,7 @@ const SignupComponent: FC = () => {
                 onChange={HandleUsername}
                 value={username.value}
                 error={username.isError}
+                autoComplete="off"
                 helperText={username.errorMessage}
               />
             </div>

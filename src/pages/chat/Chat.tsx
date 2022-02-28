@@ -113,6 +113,7 @@ const Chat: FC = () => {
       },
     });
   };
+  console.log(stateInDetail);
 
   const HandleChangeMessage: any = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
@@ -178,11 +179,10 @@ const Chat: FC = () => {
                     <div className="margintd">
                       <TextField
                         className="inputSignup"
-                        aria-readonly={true}
                         required
                         variant="standard"
                         label="Kode"
-                        value={stateInDetail.id}
+                        value={stateInDetail?.id}
                       />
                     </div>
                     <div className="margintd">
@@ -193,7 +193,7 @@ const Chat: FC = () => {
                         variant="standard"
                         label="Nama room"
                         onChange={HandleChangeNameRoom}
-                        value={stateInDetail.name}
+                        value={stateInDetail?.name}
                       />
                     </div>
                     <div className="margintd">
@@ -205,7 +205,7 @@ const Chat: FC = () => {
                         multiline={true}
                         label="Deskripsi room"
                         onChange={HandleChangeRoomDesc}
-                        value={stateInDetail.description}
+                        value={stateInDetail?.description}
                       />
                       {stateInDetail.onEdit ? (
                         <div>*Sekarang kamu bisa ubah form diatas! ...</div>
@@ -251,6 +251,7 @@ const Chat: FC = () => {
                 placeholder="Ketikan bacotanmu disini..."
                 value={message}
                 onChange={HandleChangeMessage}
+                autoComplete="off"
               />
             </Grid>
             <Grid xs={1}>

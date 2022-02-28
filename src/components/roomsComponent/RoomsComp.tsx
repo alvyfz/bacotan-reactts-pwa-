@@ -189,6 +189,7 @@ const RoomsComp: FC = () => {
                             id="outlined-required"
                             label="Kode"
                             onChange={HandleChangeKode}
+                            autoComplete="off"
                             value={kode}
                           />
                         </div>
@@ -250,6 +251,7 @@ const RoomsComp: FC = () => {
                             className="inputSignup"
                             required
                             id="outlined-required"
+                            autoComplete="off"
                             label="Nama room"
                             onChange={HandleChangeRoomName}
                             value={roomName}
@@ -262,6 +264,7 @@ const RoomsComp: FC = () => {
                             id="outlined-required"
                             label="Deskripsi room"
                             onChange={HandleChangeRoomDesc}
+                            autoComplete="off"
                             value={roomDesc}
                           />
                         </div>
